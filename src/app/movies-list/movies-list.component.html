@@ -1,0 +1,7 @@
+<section>
+    <app-movie-item
+      *ngFor="let movie of movies"
+      [movie]="movie"
+      (delete)="onMediaItemDelete($event)"
+      [ngClass]="{ 'featured-movies': movie.featured == 'true','featured-series': movie.featured == true}"></app-movie-item>
+  </section>
