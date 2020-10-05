@@ -1,0 +1,34 @@
+<div class="container">
+  <form id="contact" [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+    <h2>Arhs Form</h2>
+    <h3>Current time: {{lastRefresh | date: "medium"}}</h3>
+    <h4>Contact us today, and get reply with in 24 hours!</h4>
+    <fieldset>
+      <input placeholder="Your Username" type="text" tabindex="1" id="username" formControlName="username" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" formControlName="email" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Password" type="password" tabindex="3" formControlName="password" required>
+    </fieldset>
+    <fieldset>
+      <select name="role" id="role" formControlName="role" tabindex="4">
+        <option value="" selected disabled hidden>Select Here</option>
+        <optgroup label="Super User">
+          <option value="SuperA">SuperA</option>
+          <option value="SuperB">SuperB</option>
+        </optgroup>
+        <optgroup label="Admin">
+          <option value="AdminA">AdminA</option>
+          <option value="AdminB">AdminB</option>
+        </optgroup>
+      </select>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" [disabled]="!myForm.valid">Submit</button>
+    </fieldset>
+    <p>Form Status: {{myForm.status}}</p>
+  </form>
+</div>
+
