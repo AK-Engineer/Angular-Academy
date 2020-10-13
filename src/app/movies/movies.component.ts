@@ -30,6 +30,20 @@ export class MoviesComponent implements OnInit {
         // On this observable take the movies array being emitted and set it to this.movies
   }
 
+  add(title: string): void {
+    title = title.trim();
+    if (!title) { return; }
+    this.movieService.addMovie({ title } as Movie)
+      .subscribe(movie => {
+        this.movies.push(movie);
+      });
+  }
+
+  delete(movie: Movie): void {
+    this.movies = this.movies.filter(h => h !== movie);
+    this.movieService.deleteMovie(movie).subscribe();
+  }
+
   ngOnInit(): void {
     this.getMovies();
   }

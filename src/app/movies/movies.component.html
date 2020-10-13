@@ -4,8 +4,19 @@
     <a routerLink="/detail/{{movie.id}}">
       <span class="badge">{{movie.id}}</span> {{movie.title}}
     </a>
+    <button class="delete" title="delete movie"
+    (click)="delete(movie)">x</button>
   </li>
 </ul>
 
 <!-- <app-movie-detail [movie]="selectedMovie"></app-movie-detail> -->
 
+<div>
+  <label>Movie title:
+    <input #movieTitle />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(movieTitle.value); movieTitle.value=''">
+    add
+  </button>
+</div>
